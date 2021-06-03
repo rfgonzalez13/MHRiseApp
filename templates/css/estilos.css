@@ -1,0 +1,145 @@
+/* Style the header with a grey background and some padding */
+
+body{
+    background-color: lightblue;
+       font-size:85%;
+    font-family: Inter,Roobert,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+}
+
+
+.header {
+  overflow: hidden;
+  background-color: cornflowerblue;
+    border-radius: 10px;
+}
+.botonera{
+    background-color: sandybrown;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.header a.logo {
+    position: relative;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-left: -175px;
+}
+/* Style the header links */
+.botonera a.boton {
+    display: inline;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  line-height: 25px;
+    margin-left: 5px;
+    border-radius: 30px;
+    background-color: sandybrown;
+}
+input.boton{
+    color: black;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid blue;
+    background-color: sandybrown;
+    border-radius: 10px;
+    float: right;
+}
+a.boton{
+    color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  line-height: 25px;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: sandybrown;
+}
+
+.titulos{
+    background-color: lightskyblue;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.mitad{
+        width: 50%;
+}
+.redondo{
+    border-radius: 5px;
+}
+.colocado{
+    margin-left: 100px;
+}
+.aire{
+    margin-bottom: 10px;
+}
+textarea {
+  height: 60px;
+  width: 80%;
+  border: 2px solid lightblue;
+  margin-left: 10px;
+  vertical-align: middle;
+    background-color: lightblue;
+    font-family: Inter;
+    font-size:90%;
+
+}
+textarea:focus{
+border: 2px solid sandybrown;
+background-color: white;
+}
+textarea:hover{
+border: 2px solid blue;
+}
+
+
+.muchotexto{
+    background-color: sandybrown;
+    border-radius: 10px;
+        padding: 10px;
+
+}
+
+.frmNuevaHabilidad{
+    position: relative;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border: 2px solid sandybrown;
+    border-radius: 10px;
+    background: cornflowerblue;
+    padding-left: 30px;
+    horizontal-align: middle;
+    margin-left: 20px;
+}
+
+.sampleimg{
+    display: inline;
+    float: right;
+    width: 50%;
+    margin-top: -280px;
+        margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Change the background color on mouse-over */
+a.boton:hover {
+  background-color: lightskyblue;
+  color: white;
+}
+input.boton:hover {
+    background-color: lightskyblue;
+    color: white;
+}
+
+
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+

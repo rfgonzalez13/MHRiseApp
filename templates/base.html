@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		 <meta name="author" content="Rubén Fernández González">
+		  <meta name="description" content="MHRise App">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link rel="stylesheet" type="text/css" href="/css/estilos.css"/>
+  </head>
+<body>
+    <div class="header">
+
+      <a href="/" class="logo"><img src="/res/logoMHRISE.png" height="199" width="350"></a>
+        <div class="botonera">
+            <a href="{{access_link}}" class="boton">{{user_name}}</a>
+            <a href="https://www.youtube.es" class="boton">Crear Set</a>
+            <a href="https://www.youtube.es" class="boton">Sets Guardados</a>
+            <a href="/panel_admin" class="boton">Administración</a>
+        </div>
+    </div>
+   {% block contenido %}{% endblock %}
+</br></br></br></br>
+</body>
+</html>

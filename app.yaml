@@ -1,0 +1,49 @@
+application: appengineproject
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /js
+  mime_type: text/javascript
+  static_dir: templates/js
+
+
+- url: /css
+  static_dir: templates/css
+
+- url: /res
+  static_dir: templates/res
+
+- url: /panel_admin
+  script: handlers.panel_admin.app
+  login: admin
+
+- url: /panel_habilidades
+  script: handlers.panel_habilidades.app
+  login: admin
+
+- url: /habilidades/nueva_habilidad
+  script: handlers.habilidades.nueva_habilidad.app
+  login: admin
+
+- url: /habilidades/nueva_habilidad_2
+  script: handlers.habilidades.nueva_habilidad_2.app
+  login: admin
+
+- url: /
+  script: handlers.main.app
+
+
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+
+- name: jinja2
+  version: "latest"

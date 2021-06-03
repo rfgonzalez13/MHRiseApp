@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h1 class="titulos">Habilidades</h1>
+
+{% if habilidades.count() > 0 %}
+    {% for habilidad in habilidades %}
+        <div class="showall"></div><b>{{ habilidad.nombre }}</b> {{ habilidad.nivel }} {{ habilidad.descripcion }}</div> </br>
+    {% endfor %}
+{% else %}
+    <p class="titulos"><b>No hay habilidades registradas.</b></p>
+{% endif %}
+</br>
+<a href="/habilidades/nueva_habilidad" class="boton">Añadir Habilidad</a>
+
+
+{% endblock %}

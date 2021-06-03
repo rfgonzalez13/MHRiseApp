@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<p><img src="/res/sample02.png" class="sampleimg"></p>
+<h2 class="titulos mitad">Añadir Habilidad</h2>
+
+<form id="frmNuevaHabilidad"
+        class="frmNuevaHabilidad mitad"
+       method="post"
+       action="/habilidades/nueva_habilidad">
+
+
+    <p>
+        <label for="edNvmax" class="colocado">Nivel Máximo:</label>
+        <select id="edNvmax" class="redondo colocado"name="edNvmax" form="frmNuevaHabilidad">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+    </p>
+
+    <input type="submit" class="boton" value="Siguiente"></p>
+</form>
+
+{% endblock %}
