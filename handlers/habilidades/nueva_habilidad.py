@@ -1,5 +1,4 @@
 # coding = utf-8
-import encodings.utf_8
 
 import webapp2
 

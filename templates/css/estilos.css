@@ -1,20 +1,26 @@
 /* Style the header with a grey background and some padding */
+:root {
+    --titulo: lightskyblue; /* lightskyblue*/
+    --fondo: lightblue; /*lightblue*/
+    --textos: #DE3902; /*sandybrown*/
+    --header: cornflowerblue; /*cornflowerblue*/
+}
 
-body{
-    background-color: lightblue;
-       font-size:85%;
-    font-family: Inter,Roobert,Helvetica Neue,Helvetica,Arial,sans-serif;
+body {
+    background-color: var(--fondo);
+    font-size: 85%;
+    font-family: Inter, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
 
 
 .header {
-  overflow: hidden;
-  background-color: cornflowerblue;
+    overflow: hidden;
+    background-color: var(--header);
     border-radius: 10px;
 }
-.botonera{
-    background-color: sandybrown;
+.botonera {
+    background-color: var(--textos);
     overflow: hidden;
     border-radius: 5px;
 }
@@ -29,37 +35,37 @@ body{
 /* Style the header links */
 .botonera a.boton {
     display: inline;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  line-height: 25px;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
     margin-left: 5px;
     border-radius: 30px;
-    background-color: sandybrown;
+    background-color: var(--textos);
 }
-input.boton{
+input.boton {
     color: black;
     text-align: center;
     padding: 8px;
     border: 1px solid blue;
-    background-color: sandybrown;
+    background-color: var(--textos);
     border-radius: 10px;
     float: right;
 }
-a.boton{
+a.boton {
     color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  line-height: 25px;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
     margin-left: 5px;
     border-radius: 10px;
-    background-color: sandybrown;
+    background-color: var(--textos);
 }
 
-.titulos{
-    background-color: lightskyblue;
+.titulos {
+    background-color: var(--titulo);
     padding: 10px;
     border-radius: 10px;
 
@@ -77,40 +83,40 @@ a.boton{
     margin-bottom: 10px;
 }
 textarea {
-  height: 60px;
-  width: 80%;
-  border: 2px solid lightblue;
-  margin-left: 10px;
-  vertical-align: middle;
-    background-color: lightblue;
+    height: 60px;
+    width: 80%;
+    border: 2px solid var(--fondo);
+    margin-left: 10px;
+    vertical-align: middle;
+    background-color: var(--fondo);
     font-family: Inter;
-    font-size:90%;
+    font-size: 90%;
 
 }
-textarea:focus{
-border: 2px solid sandybrown;
-background-color: white;
+textarea:focus {
+    border: 2px solid var(--textos);
+    background-color: white;
 }
 textarea:hover{
 border: 2px solid blue;
 }
 
 
-.muchotexto{
-    background-color: sandybrown;
+.muchotexto {
+    background-color: var(--textos);
     border-radius: 10px;
-        padding: 10px;
+    padding: 10px;
 
 }
 
-.frmNuevaHabilidad{
+.frmNuevaHabilidad {
     position: relative;
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 50px;
-    border: 2px solid sandybrown;
+    border: 2px solid var(--textos);
     border-radius: 10px;
-    background: cornflowerblue;
+    background: var(--header);
     padding-left: 30px;
     horizontal-align: middle;
     margin-left: 20px;
@@ -128,18 +134,58 @@ border: 2px solid blue;
 
 /* Change the background color on mouse-over */
 a.boton:hover {
-  background-color: lightskyblue;
-  color: white;
+    background-color: var(--titulo);
+    color: white;
 }
 input.boton:hover {
-    background-color: lightskyblue;
+    background-color: var(--titulo);
     color: white;
 }
 
 
-
 /* Float the link section to the right */
 .header-right {
-  float: right;
+    float: right;
 }
 
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+    background-color: #CCCCFF;
+    padding: 5px;
+
+    border-radius: 15px;
+
+
+}
+
+.esquinasupder {
+    border-top-right-radius: 15px;
+}
+
+.esquinasupizq {
+    border-top-left-radius: 15px;
+}
+
+.esquinainfder {
+    border-bottom-right-radius: 15px;
+}
+
+.esquinainfizq {
+    border-bottom-left-radius: 15px;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: var(--header);
+}
+
+tr:nth-child(even) {
+    background-color: #EEEEFF;
+}

@@ -18,7 +18,7 @@ class PanelHabilidad(webapp2.RequestHandler):
         else:
             access_link = users.create_login_url("/")
 
-        habilidades = Habilidad.query()
+        habilidades = Habilidad.query().order(Habilidad.nombre, Habilidad.nivel)
 
         template_values = {
             "user_name": user_name,

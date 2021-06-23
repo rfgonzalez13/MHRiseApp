@@ -7,7 +7,7 @@ class Habilidad(ndb.Model):
     nivel = ndb.IntegerProperty(required=True, indexed=True)
     nivel_max = ndb.IntegerProperty(required=True, indexed=False)
     descripcion = ndb.TextProperty(required=True)
-    pk_nombre = ndb.StringProperty(required=True, indexed=False)
+    pk_nombre = ndb.StringProperty(required=True, indexed=True)
 
 
 @ndb.transactional

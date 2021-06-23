@@ -4,13 +4,51 @@
 
 <h1 class="titulos">Habilidades</h1>
 
-{% if habilidades.count() > 0 %}
+<table>
+    <tr>
+        <th class="esquinasupizq">Habilidad</th>
+        <th>Nivel</th>
+        <th>Descripción</th>
+        <th></th>
+        <th class="esquinasupder"></th>
+    </tr>
+    {% if habilidades.count() > 0 %}
     {% for habilidad in habilidades %}
-        <div class="showall"></div><b>{{ habilidad.nombre }}</b> {{ habilidad.nivel }} {{ habilidad.descripcion }}</div> </br>
+
+
+    <tr>
+        <td>{{ habilidad.nombre }}</td>
+        <td>{{ habilidad.nivel }}</td>
+        <td>{{ habilidad.descripcion }}</td>
+        <td><a href="/habilidades/editar?id={{ habilidad.key.urlsafe() }}"><img height="20" width="18"
+                                                                                src="res/edit.png"></a></td>
+        <td><a href="/habilidades/eliminar?id={{ habilidad.key.urlsafe() }}"><img height="20" width="18"
+                                                                                  src="res/delete.png"></a></td>
+    </tr>
+
+    </tr>
+
+
     {% endfor %}
-{% else %}
-    <p class="titulos"><b>No hay habilidades registradas.</b></p>
-{% endif %}
+    {% else %}
+    <tr>
+        <td></td>
+        <td></td>
+        <td><b>No hay habilidades registradas.</b></td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% endif %}
+
+    <tr>
+        <td class="esquinainfizq"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="esquinainfder"></td>
+    </tr>
+
+</table>
 </br>
 <a href="/habilidades/nueva_habilidad" class="boton">Añadir Habilidad</a>
 

@@ -1,6 +1,5 @@
 # coding = utf-8
 
-
 import time
 
 import webapp2
@@ -38,9 +37,8 @@ class NuevaHabilidad2(webapp2.RequestHandler):
             "nvmax": i_nvmax
         }
 
-
         jinja = jinja2.get_jinja2(app=self.app)
-        if i_nvmax > 0 and i_nvmax < 8:
+        if 0 < i_nvmax < 8:
             self.response.write(
                 jinja.render_template("nueva_habilidad_2.html", **template_values))
         else:
@@ -55,18 +53,18 @@ class NuevaHabilidad2(webapp2.RequestHandler):
         nvmax = int(str_nvmax)
 
         pk_nombre = normalize(nombre)
-
-
-
-        for nv in range(1, nvmax+1):
-            descrip = self.request.get("edDescrip" + str(nv), "")
-            habilidad = Habilidad(nombre=nombre, nivel_max=nvmax,
-                                  nivel=nv, descripcion=descrip, pk_nombre=pk_nombre)
-            habilidad.put()
-            time.sleep(1)
+        print(pk_nombre + "  SAVE YOUR TEARS " + str(Habilidad.query(Habilidad.pk_nombre == pk_nombre).count()))
+        if Habilidad.query(Habilidad.pk_nombre == pk_nombre).count() > 0:
+            print(pk_nombre)
+        else:
+            for nv in range(1, nvmax + 1):
+                descrip = self.request.get("edDescrip" + str(nv), "")
+                habilidad = Habilidad(nombre=nombre, nivel_max=nvmax,
+                                      nivel=nv, descripcion=descrip, pk_nombre=pk_nombre)
+                habilidad.put()
+                time.sleep(1)
 
         return self.redirect("/panel_habilidades")
-
 
 
 app = webapp2.WSGIApplication([
