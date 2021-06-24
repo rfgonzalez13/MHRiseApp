@@ -88,7 +88,7 @@ textarea {
     border: 2px solid var(--fondo);
     margin-left: 10px;
     vertical-align: middle;
-    background-color: var(--fondo);
+    background-color: white;
     font-family: Inter;
     font-size: 90%;
 
@@ -111,12 +111,12 @@ border: 2px solid blue;
 
 .frmNuevaHabilidad {
     position: relative;
-    padding-right: 10px;
+    padding-right: 0px;
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 15px;
     border: 2px solid var(--textos);
     border-radius: 10px;
-    background: var(--header);
+    background: var(--titulo);
     padding-left: 30px;
     horizontal-align: middle;
     margin-left: 20px;
@@ -206,12 +206,15 @@ div.vista {
     margin: 40px;
     padding: 20px;
     border-radius: 5px;
-    border: 1px solid var(--textos);
+    border: 2px solid var(--textos);
     background-color: var(--titulo);
 
 }
 
 .padding {
     padding-bottom: 10px;
+}
 
+.guardar {
+    margin-left: 78%;
 }
