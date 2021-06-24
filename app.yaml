@@ -6,8 +6,8 @@ threadsafe: yes
 
 handlers:
   - url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+    static_files: favicon.ico
+    upload: favicon\.ico
 
 - url: /js
   mime_type: text/javascript
@@ -41,6 +41,10 @@ handlers:
 
   - url: /habilidades/ver
     script: handlers.habilidades.ver.app
+    login: admin
+
+  - url: /habilidades/editar
+    script: handlers.habilidades.editar.app
     login: admin
 
 

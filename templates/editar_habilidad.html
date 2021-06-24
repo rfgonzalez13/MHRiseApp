@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<script type="text/javascript" src="/js/checkAll.js" xmlns="http://www.w3.org/1999/html"></script>
+<h1 class="titulos mitad">{{habilidad.nombre}}</h1>
+<p><img src="/res/sample03.png" class="sampleimg"></p>
+<div class="vista">
+    <form id="frmVerHabilidad"
+          class="frmVerHabilidad"
+          method="post"
+          action="/habilidades/editar"
+          onsubmit="return ComprobarDescripciones('{{habilidad.nivel_max}}')">
+        <input type="hidden" value="{{id}}" id="edId" name="edId"/>
+        <div class="padding" align="right">
+            <a href="/habilidades/eliminar?id={{ habilidad.key.urlsafe() }}"><img height="20" width="18"
+                                                                                  src="/res/delete.png"></a>
+        </div>
+        <textarea placeholder="{{habilidad.descripcion}}" class="redondo aire Generaltxt" id="edDescrip"
+                  name="edDescrip" required/>{{habilidad.descripcion}}</textarea></br>
+        </br>
+        {% for nv in habilidad_nv %}
+        <div>
+            <label for="edDescrip{{nv.nivel}}">Nv {{nv.nivel}}:</label>
+            <textarea placeholder="{{nv.descripcion}}" class="redondo Generaltxt" id="edDescrip{{nv.nivel}}"
+                      name="edDescrip{{nv.nivel}}" required/>{{nv.descripcion}}</textarea>
+        </div>
+        </br>
+        {% endfor %}
+        <div align="right">
+            <input type="image" class="guardar" src="/res/save.png" height="24" width="22" alt="Submit">&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/panel_habilidades"><img height="30" width="30" src="/res/back.png"></a>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+

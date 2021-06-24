@@ -9,7 +9,3 @@ class Habilidad(ndb.Model):
     pk_nombre = ndb.StringProperty(required=True, indexed=True)
 
 
-@ndb.transactional
-def update(habilidad):
-
-    return habilidad.put()

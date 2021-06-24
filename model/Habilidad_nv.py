@@ -10,6 +10,3 @@ class Habilidad_nv(ndb.Model):
     descripcion = ndb.TextProperty(required=True)
 
 
-@ndb.transactional
-def update(habilidad_nv):
-    return habilidad_nv.put()

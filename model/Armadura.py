@@ -7,6 +7,3 @@ class Armadura(ndb.Model):
     pieza = ndb.StringProperty(required=True, indexed=True, choices=["Casco", "Cota", "Brazales", "Faja", "Grebas"])
 
 
-@ndb.transactional
-def update(armadura):
-    return armadura.put()

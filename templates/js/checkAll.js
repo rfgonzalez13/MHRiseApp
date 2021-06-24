@@ -1,7 +1,7 @@
 function ComprobarDescripciones(n) {
 
-    let toret;
-    let index = 1;
+    var toret;
+    var index = 1;
 
     const edNombre = document.getElementById("edNombre");
     const edNvmax = document.getElementById("edNvmax");
@@ -12,11 +12,11 @@ function ComprobarDescripciones(n) {
         && edGen.value.trim().length > 0;
 
     while (index < n + 1 && toret) {
-        let edDescrip = document.getElementById("edDescrip" + index)
+        var edDescrip = document.getElementById("edDescrip" + index)
         if (edDescrip.value.trim().length <= 0) {
             toret = false;
         }
-        n++;
+        index++;
     }
     if (!toret) {
         alert("Existen campos vacíos");
