@@ -5,7 +5,7 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /favicon\.ico
+  - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
 
@@ -17,27 +17,35 @@ handlers:
 - url: /css
   static_dir: templates/css
 
-- url: /res
-  static_dir: templates/res
+  - url: /res
+    static_dir: templates/res
 
-- url: /panel_admin
-  script: handlers.panel_admin.app
-  login: admin
+  - url: /panel_admin
+    script: handlers.panel_admin.app
+    login: admin
 
-- url: /panel_habilidades
-  script: handlers.panel_habilidades.app
-  login: admin
+  - url: /error
+    script: handlers.error.app
 
-- url: /habilidades/nueva_habilidad
-  script: handlers.habilidades.nueva_habilidad.app
-  login: admin
+  - url: /panel_habilidades
+    script: handlers.panel_habilidades.app
+    login: admin
 
-- url: /habilidades/nueva_habilidad_2
-  script: handlers.habilidades.nueva_habilidad_2.app
-  login: admin
+  - url: /habilidades/nueva_habilidad
+    script: handlers.habilidades.nueva_habilidad.app
+    login: admin
 
-- url: /
-  script: handlers.main.app
+  - url: /habilidades/nueva_habilidad_2
+    script: handlers.habilidades.nueva_habilidad_2.app
+    login: admin
+
+  - url: /habilidades/ver
+    script: handlers.habilidades.ver.app
+    login: admin
+
+
+  - url: /
+    script: handlers.main.app
 
 
 

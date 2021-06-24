@@ -189,3 +189,29 @@ th {
 tr:nth-child(even) {
     background-color: #EEEEFF;
 }
+
+textarea.Generaltxt {
+    height: 40px;
+    width: 86%;
+    margin-left: 0px;
+    border: 2px solid var(--fondo);
+    vertical-align: middle;
+    background-color: white;
+    font-family: Inter;
+    font-size: 90%;
+}
+
+div.vista {
+    width: 50%;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--textos);
+    background-color: var(--titulo);
+
+}
+
+.padding {
+    padding-bottom: 10px;
+
+}

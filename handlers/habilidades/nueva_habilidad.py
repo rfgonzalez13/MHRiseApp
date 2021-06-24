@@ -42,7 +42,7 @@ class NuevaHabilidad(webapp2.RequestHandler):
         if (nvmax < 0):
             return self.redirect("/habilidades/nueva_habilidad")
         else:
-            return self.redirect("/habilidades/nueva_habilidad_2?&nvmax=" + str_nvmax)
+            return self.redirect("/habilidades/nueva_habilidad_2?nvmax=" + str_nvmax)
 
 app = webapp2.WSGIApplication([
     ('/habilidades/nueva_habilidad', NuevaHabilidad)

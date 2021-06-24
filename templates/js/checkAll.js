@@ -1,26 +1,24 @@
 function ComprobarDescripciones(n) {
 
-    var toret = false;
-    var index = 1;
+    let toret;
+    let index = 1;
 
-    const edNombre = document.getElementById( "edNombre" );
-    const edNvmax = document.getElementById( "edNvmax" );
+    const edNombre = document.getElementById("edNombre");
+    const edNvmax = document.getElementById("edNvmax");
+    const edGen = document.getElementById("edDescrip");
 
-    if( edNombre.value.trim().length > 0
-              && edNvmax.value.trim().length > 0 ){
-        toret = true;
-    }else{
-        toret = false;
-    }
+    toret = edNombre.value.trim().length > 0
+        && edNvmax.value.trim().length > 0
+        && edGen.value.trim().length > 0;
 
     while (index < n + 1 && toret) {
-        var edDescrip = document.getElementById("edDescrip" + index)
+        let edDescrip = document.getElementById("edDescrip" + index)
         if (edDescrip.value.trim().length <= 0) {
             toret = false;
         }
         n++;
     }
-    if(!toret){
+    if (!toret) {
         alert("Existen campos vacíos");
     }
      return toret;

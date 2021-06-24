@@ -8,6 +8,8 @@ from webapp2_extras import jinja2
 
 from model.Habilidad import Habilidad
 
+from model.Habilidad_nv import Habilidad_nv
+
 from google.appengine.api import users
 
 from functions.Normalize import normalize
@@ -49,22 +51,28 @@ class NuevaHabilidad2(webapp2.RequestHandler):
 
         str_nvmax = self.request.get("edNvmax", "")
         nombre = self.request.get("edNombre", "")
-
+        desgen = self.request.get("edDescrip", "")
         nvmax = int(str_nvmax)
 
         pk_nombre = normalize(nombre)
-        print(pk_nombre + "  SAVE YOUR TEARS " + str(Habilidad.query(Habilidad.pk_nombre == pk_nombre).count()))
+
+        msg = "La habilidad ya existe en la Base de Datos"
+        link = "/panel_habilidades"
+
         if Habilidad.query(Habilidad.pk_nombre == pk_nombre).count() > 0:
-            print(pk_nombre)
+            return self.redirect("/error?edMsg=" + msg + "&edLink=" + link)
         else:
+            habilidad = Habilidad(nombre=nombre, nivel_max=nvmax, descripcion=desgen, pk_nombre=pk_nombre)
+            key = habilidad.put()
+            time.sleep(1)
+
             for nv in range(1, nvmax + 1):
                 descrip = self.request.get("edDescrip" + str(nv), "")
-                habilidad = Habilidad(nombre=nombre, nivel_max=nvmax,
-                                      nivel=nv, descripcion=descrip, pk_nombre=pk_nombre)
-                habilidad.put()
+                habilidad_nv = Habilidad_nv(habilidad=key, nivel=nv, descripcion=descrip, parent=key)
+                habilidad_nv.put()
                 time.sleep(1)
 
-        return self.redirect("/panel_habilidades")
+            return self.redirect("/panel_habilidades")
 
 
 app = webapp2.WSGIApplication([
