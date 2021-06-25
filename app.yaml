@@ -62,6 +62,10 @@ handlers:
     script: handlers.habilidades.eliminar.app
     login: admin
 
+  - url: /armaduras/eliminar
+    script: handlers.armaduras.eliminar.app
+    login: admin
+
   - url: /
     script: handlers.main.app
 

@@ -47,7 +47,7 @@ class EliminarHabilidad(webapp2.RequestHandler):
             hab_nv.key.delete()
 
         clave.delete()
-
+        time.sleep(1)
         return self.redirect("/panel_habilidades")
 
 
