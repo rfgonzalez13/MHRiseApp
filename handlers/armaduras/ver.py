@@ -67,21 +67,22 @@ class VerArmadura(webapp2.RequestHandler):
                     lista_h.append(habilidad.nombre + u" Nv" + str(h.nivel))
                 habilidades[pieza.nombre] = lista_h
 
-        datos_habilidad = {}
+
         resumen_habilidades = {}
         for h in hab_total:
+            datos_habilidad = {}
             pk_nombre = Normalize.normalize(h)
             habilidad = Habilidad.query(Habilidad.pk_nombre == pk_nombre).get()
             nivel = hab_total.get(habilidad.nombre)
+            if nivel > habilidad.nivel_max:
+                nivel = habilidad.nivel_max
             habilidad_nv = Habilidad_nv.query(Habilidad_nv.nivel == nivel, ancestor=habilidad.key).get()
             datos_habilidad["nv"] = nivel
             datos_habilidad["descrip_nv"] = habilidad_nv.descripcion
             datos_habilidad["descrip"] = habilidad.descripcion
-            datos_habilidad["nv_max"] = habilidad.nivel_max
+            datos_habilidad["nv_max"] = habilidad.nivel_max - nivel
             resumen_habilidades[habilidad.nombre] = datos_habilidad
 
-            print(resumen_habilidades)
-            print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 
         template_values = {
             "user_name": user_name,
@@ -105,18 +106,18 @@ app = webapp2.WSGIApplication([
 
 def get_pieza(p_tipo, p_id):
     pieza = None
-
     if p_id is not None:
-
-        if p_tipo == "Casco":
-            pieza = Pieza.get_by_id(p_id.casco)
-        elif p_tipo == "Cota":
-            pieza = Pieza.get_by_id(p_id.cota)
-        elif p_tipo == "Brazales":
-            pieza = Pieza.get_by_id(p_id.brazales)
-        elif p_tipo == "Faja":
-            pieza = Pieza.get_by_id(p_id.faja)
-        elif p_tipo == "Grebas":
-            pieza = Pieza.get_by_id(p_id.grebas)
-
+        try:
+            if p_tipo == "Casco":
+                pieza = Pieza.get_by_id(p_id.casco)
+            elif p_tipo == "Cota":
+                pieza = Pieza.get_by_id(p_id.cota)
+            elif p_tipo == "Brazales":
+                pieza = Pieza.get_by_id(p_id.brazales)
+            elif p_tipo == "Faja":
+                pieza = Pieza.get_by_id(p_id.faja)
+            elif p_tipo == "Grebas":
+                pieza = Pieza.get_by_id(p_id.grebas)
+        except:
+            pieza = None
     return pieza

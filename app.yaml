@@ -58,6 +58,10 @@ handlers:
     script: handlers.habilidades.editar.app
     login: admin
 
+  - url: /habilidades/eliminar
+    script: handlers.habilidades.eliminar.app
+    login: admin
+
   - url: /
     script: handlers.main.app
 
