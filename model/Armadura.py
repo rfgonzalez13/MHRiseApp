@@ -4,6 +4,9 @@ from google.appengine.ext import ndb
 
 class Armadura(ndb.Model):
     nombre = ndb.StringProperty(required=True, indexed=True)
-    pieza = ndb.StringProperty(required=True, indexed=True, choices=["Casco", "Cota", "Brazales", "Faja", "Grebas"])
-
-
+    pk_nombre = ndb.StringProperty(required=True, indexed=True)
+    casco = ndb.IntegerProperty(indexed=True)
+    cota = ndb.IntegerProperty(indexed=True)
+    brazales = ndb.IntegerProperty(indexed=True)
+    faja = ndb.IntegerProperty(indexed=True)
+    grebas = ndb.IntegerProperty(indexed=True)

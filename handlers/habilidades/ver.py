@@ -5,8 +5,6 @@ import webapp2
 from google.appengine.ext import ndb
 from webapp2_extras import jinja2
 
-from model.Habilidad import Habilidad
-
 from model.Habilidad_nv import Habilidad_nv
 
 from google.appengine.api import users

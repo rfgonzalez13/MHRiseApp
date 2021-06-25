@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h1 class="titulos mitad">{{armadura.nombre}}</h1>
+
+
+{% if piezas.get("Casco") != None %}
+<p>{{piezas.get("Casco")}}</p>
+{% if habilidades.get(piezas.get("Casco")) != None %}
+{% for habilidad in habilidades.get(piezas.get("Casco"))%}
+<p>{{ habilidad }}</p>
+{% endfor%}
+{% endif %}
+{% endif %}
+<p>------------------------------------------------------</p>
+{% if piezas.get("Cota") != None %}
+<p>{{piezas.get("Cota")}}</p>
+{% if habilidades.get(piezas.get("Cota")) != None %}
+{% for habilidad in habilidades.get(piezas.get("Cota"))%}
+<p>{{ habilidad }}</p>
+{% endfor%}
+{% endif %}
+{% endif %}
+<p>------------------------------------------------------</p>
+
+{% if piezas.get("Brazales") != None %}
+<p>{{piezas.get("Brazales")}}</p>
+{% if habilidades.get(piezas.get("Brazales")) != None %}
+{% for habilidad in habilidades.get(piezas.get("Brazales"))%}
+<p>{{ habilidad }}</p>
+{% endfor%}
+{% endif %}
+{% endif %}
+<p>------------------------------------------------------</p>
+
+{% if piezas.get("Faja") != None %}
+<p>{{piezas.get("Faja")}}</p>
+{% if habilidades.get(piezas.get("Faja")) != None %}
+{% for habilidad in habilidades.get(piezas.get("Faja"))%}
+<p>{{ habilidad }}</p>
+{% endfor%}
+{% endif %}
+{% endif %}
+<p>------------------------------------------------------</p>
+
+{% if piezas.get("Grebas") != None %}
+<p>{{piezas.get("Grebas")}}</p>
+{% if habilidades.get(piezas.get("Grebas")) != None %}
+{% for habilidad in habilidades.get(piezas.get("Grebas"))%}
+<p>{{ habilidad }}</p>
+{% endfor%}
+{% endif %}
+{% endif %}
+<p>------------------------------------------------------</p>
+
+{% for hab in resumen_habilidades %}
+<p>{{ hab }} nv{{ resumen_habilidades.get(hab).get("nv") }}
+    </br>{{resumen_habilidades.get(hab).get("descrip")}}
+    </br>{{resumen_habilidades.get(hab).get("descrip_nv")}}
+    </br>NV MAX {{resumen_habilidades.get(hab).get("nv_max")}}
+</p>
+{% endfor %}
+
+
+{% endblock %}

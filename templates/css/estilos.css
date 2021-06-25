@@ -218,3 +218,19 @@ div.vista {
 .guardar {
     margin-left: 78%;
 }
+
+th.armadura {
+    background-color: var(--fondo)
+}
+
+div.addpieza {
+    text-align: center;
+    border: solid 2px var(--textos);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--titulo);
+}
+
+form.armadura {
+    text-align: center;
+}

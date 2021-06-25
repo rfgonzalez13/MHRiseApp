@@ -30,6 +30,10 @@ handlers:
     script: handlers.panel_habilidades.app
     login: admin
 
+  - url: /panel_armaduras
+    script: handlers.panel_armaduras.app
+    login: admin
+
   - url: /habilidades/nueva_habilidad
     script: handlers.habilidades.nueva_habilidad.app
     login: admin
@@ -38,8 +42,16 @@ handlers:
     script: handlers.habilidades.nueva_habilidad_2.app
     login: admin
 
+  - url: /armaduras/nueva_armadura
+    script: handlers.armaduras.nueva_armadura.app
+    login: admin
+
   - url: /habilidades/ver
     script: handlers.habilidades.ver.app
+    login: admin
+
+  - url: /armaduras/ver
+    script: handlers.armaduras.ver.app
     login: admin
 
   - url: /habilidades/editar

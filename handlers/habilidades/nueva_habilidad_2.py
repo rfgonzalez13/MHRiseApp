@@ -68,7 +68,7 @@ class NuevaHabilidad2(webapp2.RequestHandler):
 
             for nv in range(1, nvmax + 1):
                 descrip = self.request.get("edDescrip" + str(nv), "")
-                habilidad_nv = Habilidad_nv(habilidad=key, nivel=nv, descripcion=descrip, parent=key)
+                habilidad_nv = Habilidad_nv(nivel=nv, descripcion=descrip, parent=key)
                 habilidad_nv.put()
                 time.sleep(1)
 

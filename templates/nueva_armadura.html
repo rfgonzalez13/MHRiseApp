@@ -1,0 +1,332 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2 class="titulos">Añadir Armadura</h2>
+
+
+<form id="frmNuevaArmadura"
+      class="armadura"
+      method="post"
+      action="/armaduras/nueva_armadura">
+    <input type="text" class="aire mitad redondo" placeholder="Nombre" id="edNombre" name="edNombre" required/>
+    </br>
+    <table>
+        <tr>
+            <th width="20%" class="armadura">
+                <div class="addpieza">
+                    <img height="38" width="38" src="/res/casco.png">
+                    </br></br>
+                    <input type="text" class="redondo" placeholder="Nombre Pieza" id="edCascoNombre"
+                           name="edCascoNombre"/>
+                    </br></br>
+
+                    <select name="CascoHabilidad1" id="CascoHabilidad1">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CascoNivel1" id="CascoNivel1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="CascoHabilidad2" id="CascoHabilidad2">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CascoNivel2" id="CascoNivel2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="CascoHabilidad3" id="CascoHabilidad3">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CascoNivel3" id="CascoNivel3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="CascoHabilidad4" id="CascoHabilidad4">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CascoNivel4" id="CascoNivel4">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br>
+                </div>
+            </th>
+            <th width="20%" class="armadura">
+                <div class="addpieza">
+                    <img height="38" width="38" src="/res/cota.png">
+                    </br></br>
+                    <input type="text" class="redondo" placeholder="Nombre Pieza" id="edCotaNombre"
+                           name="edCotaNombre"/>
+                    </br></br>
+
+                    <select name="CotaHabilidad1" id="CotaHabilidad1">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CotaNivel1" id="CotaNivel1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="CotaHabilidad2" id="CotaHabilidad2">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CotaNivel2" id="CotaNivel2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="CotaHabilidad3" id="CotaHabilidad3">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CotaNivel3" id="CotaNivel3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="CotaHabilidad4" id="CotaHabilidad4">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="CotaNivel4" id="CotaNivel4">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br>
+                </div>
+            </th>
+            <th width="20%" class="armadura">
+                <div class="addpieza">
+                    <img height="38" width="38" src="/res/brazales.png">
+                    </br></br>
+                    <input type="text" class="redondo" placeholder="Nombre Pieza" id="edBrazalesNombre"
+                           name="edBrazalesNombre"/>
+                    </br></br>
+
+                    <select name="BrazalesHabilidad1" id="BrazalesHabilidad1">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="BrazalesNivel1" id="BrazalesNivel1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="BrazalesHabilidad2" id="BrazalesHabilidad2">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="BrazalesNivel2" id="BrazalesNivel2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="BrazalesHabilidad3" id="BrazalesHabilidad3">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="BrazalesNivel3" id="BrazalesNivel3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="BrazalesHabilidad4" id="BrazalesHabilidad4">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="BrazalesNivel4" id="BrazalesNivel4">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br>
+                </div>
+            </th>
+            <th width="20%" class="armadura">
+                <div class="addpieza">
+                    <img height="38" width="38" src="/res/faja.png">
+                    </br></br>
+                    <input type="text" class="redondo" placeholder="Nombre Pieza" id="edFajaNombre"
+                           name="edFajaNombre"/>
+                    </br></br>
+
+                    <select name="FajaHabilidad1" id="FajaHabilidad1">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="FajaNivel1" id="FajaNivel1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="FajaHabilidad2" id="FajaHabilidad2">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="FajaNivel2" id="FajaNivel2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="FajaHabilidad3" id="FajaHabilidad3">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="FajaNivel3" id="FajaNivel3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="FajaHabilidad4" id="FajaHabilidad4">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="FajaNivel4" id="FajaNivel4">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br>
+                </div>
+            </th>
+            <th width="20%" class="armadura">
+                <div class="addpieza">
+                    <img height="38" width="38" src="/res/grebas.png">
+                    </br></br>
+                    <input type="text" class="redondo" placeholder="Nombre Pieza" id="edGrebasNombre"
+                           name="edGrebasNombre"/>
+                    </br></br>
+
+                    <select name="GrebasHabilidad1" id="GrebasHabilidad1">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="GrebasNivel1" id="GrebasNivel1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="GrebasHabilidad2" id="GrebasHabilidad2">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="GrebasNivel2" id="GrebasNivel2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="GrebasHabilidad3" id="GrebasHabilidad3">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="GrebasNivel3" id="GrebasNivel3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br></br>
+                    <select name="GrebasHabilidad4" id="GrebasHabilidad4">
+                        <option value=" " selected="selected"></option>
+                        {% for habilidad in habilidades %}
+                        <option value="{{habilidad.key.id()}}">{{habilidad.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="GrebasNivel4" id="GrebasNivel4">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </br>
+                </div>
+            </th>
+        </tr>
+    </table>
+    </br>
+    <input type="image" class="guardar" src="/res/save.png" height="24" width="22" alt="Submit">&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/panel_armaduras"><img height="30" width="30" src="/res/back.png"></a>
+</form>
+{% endblock %}

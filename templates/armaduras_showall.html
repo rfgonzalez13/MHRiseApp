@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h1 class="titulos">Armaduras</h1>
+<p><img src="/res/sample05.png" class="sampleimg"></p>
+<table class="mitad">
+    <tr>
+        <th class="esquinasupizq">Armadura</th>
+        <th width="6%"></th>
+        <th width="5%"></th>
+        <th class="esquinasupder" width="5%"></th>
+    </tr>
+    {% if armaduras.count() > 0 %}
+    {% for armadura in armaduras %}
+
+
+    <tr>
+        <td>{{ armadura.nombre }}</td>
+        <td><a href="/armaduras/ver?id={{ armadura.key.urlsafe() }}"><img height="18" width="30"
+                                                                          src="res/view.png"></a></td>
+        <td><a href="/armaduras/editar?id={{ armadura.key.urlsafe() }}"><img height="20" width="18"
+                                                                             src="res/edit.png"></a></td>
+        <td><a href="/armaduras/eliminar?id={{ armadura.key.urlsafe() }}"><img height="20" width="18"
+                                                                               src="res/delete.png"></a></td>
+    </tr>
+
+    </tr>
+
+
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td><b>No hay armaduras registradas.</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% endif %}
+
+    <tr>
+        <td class="esquinainfizq"></td>
+        <td></td>
+        <td></td>
+        <td class="esquinainfder"></td>
+    </tr>
+
+</table>
+</br>
+<a href="/armaduras/nueva_armadura"><img height="24" width="22" src="res/add.png"></a>
+
+
+{% endblock %}
+
