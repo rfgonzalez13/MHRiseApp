@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2 class="titulos">Editar Set</h2>
+<p><img src="/res/sample02.png" class="sampleimg"></p>
+<div class="mitad">
+    <form id="frmNuevaArmadura"
+          class="armadura"
+          method="post"
+          action="/sets/editar">
+        <input type="text" class="aire mitad redondo" placeholder="{{set.nombre}}" id="edNombre" name="edNombre"
+               value="{{set.nombre}}" readonly/>
+        </br>
+        <input type="hidden" value="{{id}}" id="edId" name="edId"/>
+        <table class="ver">
+            <tr>
+                <th class="esquinasupizq ver">
+
+                    <table class="ver borde">
+                        <tr>
+                            <th width="50%" class="ver"></th>
+                            <th class="ver"></th>
+                        </tr>
+                        <tr>
+                            <td class="imagen"><img height="38" width="38" src="/res/casco.png"></td>
+
+                            <td><select class="set" name="edCasco" id="edCasco">
+                                {% if nombres.get("Casco") == None %}
+                                <option value="" selected="selected"></option>
+                                {% else %}
+                                <option value="{{set.casco}}" selected="selected">{{nombres.get("Casco")}}</option>
+                                <option value=""></option>
+                                {% endif %}
+                                {% for casco in cascos %}
+                                <option value="{{casco.key.id()}}">{{casco.nombre}}</option>
+                                {% endfor %}
+                            </select></td>
+
+
+                        </tr>
+                        <tr>
+                            <td class="imagen"><img height="38" width="38" src="/res/cota.png"></td>
+
+                            <td><select class="set" name="edCota" id="edCota">
+                                {% if nombres.get("Cota") == None %}
+                                <option value="" selected="selected"></option>
+                                {% else %}
+                                <option value="{{set.cota}}" selected="selected">{{nombres.get("Cota")}}</option>
+                                <option value=""></option>
+                                {% endif %}
+                                {% for cota in cotas %}
+                                <option value="{{cota.key.id()}}">{{cota.nombre}}</option>
+                                {% endfor %}
+                            </select></td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td class="imagen"><img height="38" width="38" src="/res/brazales.png"></td>
+
+                            <td><select class="set" name="edBrazales" id="edBrazales">
+                                {% if nombres.get("Brazales") == None %}
+                                <option value="" selected="selected"></option>
+                                {% else %}
+                                <option value="{{set.brazales}}" selected="selected">{{nombres.get("Brazales")}}
+                                </option>
+                                <option value=""></option>
+                                {% endif %}
+                                {% for brazal in brazales %}
+                                <option value="{{brazal.key.id()}}">{{brazal.nombre}}</option>
+                                {% endfor %}
+                            </select></td>
+
+
+                        </tr>
+                        <tr>
+                            <td class="imagen"><img height="38" width="38" src="/res/faja.png"></td>
+
+                            <td><select class="set" name="edFaja" id="edFaja">
+                                {% if nombres.get("Faja") == None %}
+                                <option value="" selected="selected"></option>
+                                {% else %}
+                                <option value="{{set.faja}}" selected="selected">{{nombres.get("Faja")}}</option>
+                                <option value=""></option>
+                                {% endif %}
+                                {% for faja in fajas %}
+                                <option value="{{faja.key.id()}}">{{faja.nombre}}</option>
+                                {% endfor %}
+                            </select></td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td class="imagen"><img height="38" width="38" src="/res/grebas.png"></td>
+
+                            <td><select class="set" name="edGrebas" id="edGrebas">
+                                {% if nombres.get("Grebas") == None %}
+                                <option value="" selected="selected"></option>
+                                {% else %}
+                                <option value="{{set.grebas}}" selected="selected">{{nombres.get("Grebas")}}</option>
+                                <option value=""></option>
+                                {% endif%}
+                                {% for greba in grebas %}
+                                <option value="{{greba.key.id()}}">{{greba.nombre}}</option>
+                                {% endfor %}
+                            </select></td>
+
+
+                        </tr>
+
+
+                    </table>
+                </th>
+
+            </tr>
+        </table>
+        </br>
+        <input type="image" class="guardar" src="/res/save.png" height="24" width="22" alt="Submit">&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/panel_sets"><img height="30" width="30" src="/res/back.png"></a>
+    </form>
+</div>
+{% endblock %}

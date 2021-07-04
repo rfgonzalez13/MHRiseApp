@@ -7,6 +7,7 @@ import webapp2
 from google.appengine.ext import ndb
 from webapp2_extras import jinja2
 
+from model.Set import Set
 from model.Armadura import Armadura
 from model.Habilidad import Habilidad
 from model.Habilidad_nv import Habilidad_nv
@@ -19,11 +20,11 @@ from google.appengine.api import users
 from functions import Normalize
 
 
-class VerArmadura(webapp2.RequestHandler):
+class VerSet(webapp2.RequestHandler):
     def get(self):
 
-        msg = "Referencia a la armadura perdida"
-        link = "/panel_armaduras"
+        msg = "Referencia al set perdido"
+        link = "/panel_sets"
 
         try:
             id = self.request.get('id')
@@ -39,7 +40,7 @@ class VerArmadura(webapp2.RequestHandler):
         else:
             access_link = users.create_login_url("/")
 
-        msg = "Armadura no encontrada"
+        msg = "Set no encontrado"
 
         try:
             clave = ndb.Key(urlsafe=id)
@@ -67,7 +68,6 @@ class VerArmadura(webapp2.RequestHandler):
                     lista_h.append(habilidad.nombre + u" Nv" + str(h.nivel))
                 habilidades[pieza.nombre] = lista_h
 
-
         resumen_habilidades = {}
         for h in hab_total:
             datos_habilidad = {}
@@ -83,7 +83,7 @@ class VerArmadura(webapp2.RequestHandler):
             datos_habilidad["nv_max"] = habilidad.nivel_max - nivel
             resumen_habilidades[habilidad.nombre] = datos_habilidad
 
-        links = {"volver": "/panel_armaduras", "entidad": "armaduras"}
+        links = {"volver": "/panel_sets", "entidad": "sets"}
         template_values = {
             "user_name": user_name,
             "access_link": access_link,
@@ -101,7 +101,7 @@ class VerArmadura(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/armaduras/ver', VerArmadura)
+    ('/sets/ver', VerSet)
 ], debug=True)
 
 

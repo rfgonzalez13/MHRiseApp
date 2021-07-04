@@ -53,6 +53,7 @@ input.boton {
     border-radius: 10px;
     float: right;
 }
+
 a.boton {
     color: black;
     text-align: center;
@@ -62,6 +63,9 @@ a.boton {
     margin-left: 5px;
     border-radius: 10px;
     background-color: var(--titulo);
+}
+
+a.bordebj {
     border-bottom: 2px solid var(--header);
 }
 
@@ -71,8 +75,9 @@ a.boton {
     border-radius: 10px;
 
 }
-.mitad{
-        width: 50%;
+
+.mitad {
+    width: 50%;
 }
 .redondo{
     border-radius: 5px;
@@ -295,4 +300,8 @@ div.habs {
 div.borde {
     border-radius: 5px;
     border: 1px solid var(--textos);
+}
+
+select.set {
+    width: 180px;
 }

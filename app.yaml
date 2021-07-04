@@ -66,6 +66,29 @@ handlers:
     script: handlers.armaduras.eliminar.app
     login: admin
 
+  - url: /panel_sets
+    script: handlers.panel_sets.app
+    login: required
+
+  - url: /sets/nuevo_set
+    script: handlers.sets.nuevo_set.app
+
+  - url: /sets/guardar_set
+    script: handlers.sets.guardar_set.app
+    login: required
+
+  - url: /sets/ver
+    script: handlers.sets.ver.app
+    login: required
+
+  - url: /sets/eliminar
+    script: handlers.sets.eliminar.app
+    login: required
+
+  - url: /sets/editar
+    script: handlers.sets.editar.app
+    login: required
+
   - url: /
     script: handlers.main.app
 

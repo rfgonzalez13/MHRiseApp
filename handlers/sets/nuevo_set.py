@@ -1,13 +1,13 @@
 # coding=utf-8
 # coding = utf-8
+
 import time
 
 import webapp2
 
-from google.appengine.ext import ndb
 from webapp2_extras import jinja2
 
-from model.Armadura import Armadura
+from model.Set import Set
 from model.Habilidad import Habilidad
 from model.Habilidad_nv import Habilidad_nv
 
@@ -19,16 +19,8 @@ from google.appengine.api import users
 from functions import Normalize
 
 
-class VerArmadura(webapp2.RequestHandler):
+class NuevoSet(webapp2.RequestHandler):
     def get(self):
-
-        msg = "Referencia a la armadura perdida"
-        link = "/panel_armaduras"
-
-        try:
-            id = self.request.get('id')
-        except:
-            return self.redirect("/error?edMsg=" + msg + "&edLink=" + link)
 
         user_name = "Log In"
         user = users.get_current_user()
@@ -39,20 +31,57 @@ class VerArmadura(webapp2.RequestHandler):
         else:
             access_link = users.create_login_url("/")
 
-        msg = "Armadura no encontrada"
+        cascos = Pieza.query(Pieza.pieza == "Casco").order(Pieza.nombre)
+        cotas = Pieza.query(Pieza.pieza == "Cota").order(Pieza.nombre)
+        brazales = Pieza.query(Pieza.pieza == "Brazales").order(Pieza.nombre)
+        fajas = Pieza.query(Pieza.pieza == "Faja").order(Pieza.nombre)
+        grebas = Pieza.query(Pieza.pieza == "Grebas").order(Pieza.nombre)
 
-        try:
-            clave = ndb.Key(urlsafe=id)
-            armadura = clave.get()
-        except:
+        template_values = {
+            "user_name": user_name,
+            "access_link": access_link,
+            "cascos": cascos,
+            "cotas": cotas,
+            "brazales": brazales,
+            "fajas": fajas,
+            "grebas": grebas
+        }
+
+        jinja = jinja2.get_jinja2(app=self.app)
+        self.response.write(
+            jinja.render_template("nuevo_set.html", **template_values))
+
+    def post(self):
+
+        nombre = self.request.get("edNombre", "")
+
+        user_name = "Log In"
+        user = users.get_current_user()
+
+        if user:
+            access_link = users.create_logout_url("/")
+            user_name = "Log Out"
+        else:
+            access_link = users.create_login_url("/")
+
+        msg = "No se ha encontrado un nombre para el set"
+        link = "/sets/nuevo_set"
+
+        if nombre.strip() == "":
             return self.redirect("/error?edMsg=" + msg + "&edLink=" + link)
+
         piezas = {}
         hab_total = {}
         habilidades = {}
         tipos = ["Casco", "Cota", "Brazales", "Faja", "Grebas"]
-
+        ids = {}
         for tipo in tipos:
-            pieza = get_pieza(tipo, armadura)
+            idPieza = self.request.get("ed" + tipo, "")
+            ids[tipo] = idPieza
+            if idPieza != "":
+                pieza = Pieza.get_by_id(int(idPieza))
+            else:
+                pieza = None
             lista_h = []
             if pieza is not None:
                 piezas[tipo] = pieza.nombre
@@ -66,8 +95,6 @@ class VerArmadura(webapp2.RequestHandler):
                     hab_total.update({habilidad.nombre: new_nivel})
                     lista_h.append(habilidad.nombre + u" Nv" + str(h.nivel))
                 habilidades[pieza.nombre] = lista_h
-
-
         resumen_habilidades = {}
         for h in hab_total:
             datos_habilidad = {}
@@ -83,15 +110,17 @@ class VerArmadura(webapp2.RequestHandler):
             datos_habilidad["nv_max"] = habilidad.nivel_max - nivel
             resumen_habilidades[habilidad.nombre] = datos_habilidad
 
-        links = {"volver": "/panel_armaduras", "entidad": "armaduras"}
+        armadura = {"nombre": nombre}
+        links = {"volver": "/sets/nuevo_set", "entidad": "sets"}
         template_values = {
             "user_name": user_name,
             "access_link": access_link,
-            "armadura": armadura,
             "piezas": piezas,
+            "armadura": armadura,
             "habilidades": habilidades,
             "resumen_habilidades": resumen_habilidades,
-            "links": links
+            "links": links,
+            "ids": ids
         }
 
         jinja = jinja2.get_jinja2(app=self.app)
@@ -101,24 +130,5 @@ class VerArmadura(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/armaduras/ver', VerArmadura)
+    ('/sets/nuevo_set', NuevoSet)
 ], debug=True)
-
-
-def get_pieza(p_tipo, p_id):
-    pieza = None
-    if p_id is not None:
-        try:
-            if p_tipo == "Casco":
-                pieza = Pieza.get_by_id(p_id.casco)
-            elif p_tipo == "Cota":
-                pieza = Pieza.get_by_id(p_id.cota)
-            elif p_tipo == "Brazales":
-                pieza = Pieza.get_by_id(p_id.brazales)
-            elif p_tipo == "Faja":
-                pieza = Pieza.get_by_id(p_id.faja)
-            elif p_tipo == "Grebas":
-                pieza = Pieza.get_by_id(p_id.grebas)
-        except:
-            pieza = None
-    return pieza
