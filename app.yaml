@@ -66,6 +66,10 @@ handlers:
     script: handlers.armaduras.eliminar.app
     login: admin
 
+  - url: /armaduras/editar
+    script: handlers.armaduras.editar.app
+    login: admin
+
   - url: /panel_sets
     script: handlers.panel_sets.app
     login: required
