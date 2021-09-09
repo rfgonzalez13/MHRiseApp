@@ -90,9 +90,9 @@ class EditarHabilidad(webapp2.RequestHandler):
             descrip = self.request.get("edDescrip" + str(x), "")
             habilidad_nv.descripcion = descrip
             habilidad_nv.put()
-            time.sleep(1)
             x += 1;
 
+        time.sleep(1)
         return self.redirect('/habilidades/ver?id=' + id)
 
 

@@ -70,8 +70,8 @@ class NuevaHabilidad2(webapp2.RequestHandler):
                 descrip = self.request.get("edDescrip" + str(nv), "")
                 habilidad_nv = Habilidad_nv(nivel=nv, descripcion=descrip, parent=key)
                 habilidad_nv.put()
-                time.sleep(1)
 
+            time.sleep(1)
             return self.redirect("/panel_habilidades")
 
 

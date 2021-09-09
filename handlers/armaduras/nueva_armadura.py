@@ -79,7 +79,7 @@ class NuevaArmadura(webapp2.RequestHandler):
                             habilidades_pieza = Habilidades_pieza(pieza=pieza_key.id(), habilidad=habilidad.key.id(),
                                                                   nivel=nivel)
                             habilidades_pieza.put()
-                            time.sleep(1)
+            time.sleep(1)
             armadura = Armadura(nombre=nombre, pk_nombre=pk_nombre)
 
             armadura.populate(
